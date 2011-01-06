@@ -12,9 +12,7 @@
         this.id = elementId;
         this.videoId = videoId;
         this.handlers = {};
-
         this.embed();
-
         YoutubePlayer.register(this);
     }
 
@@ -185,6 +183,7 @@
      * @param playerId {String}
      */
     global.onYouTubePlayerReady = function(playerId) {
+        playerId = decodeURI(playerId);
         YoutubePlayer.findById(playerId).onReady();
     };
 
